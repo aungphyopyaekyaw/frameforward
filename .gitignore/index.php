@@ -13,13 +13,17 @@ if(!empty($server_name)) {
 		unset($server_array[2]);
 		$server_array = array_reverse(array_values($server_array));
 		$s = array_search('slash', $server_array);
-		$server_array[$s] = '/';
-		$server_array[$s - 1] .= $server_array[$s] . $server_array[$s + 1];
-		unset($server_array[$s]);
-		unset($server_array[$s + 1]);
-		$returnURL = 'http://' . implode('.',$server_array);
-		htmlBlock($returnURL);
-		var_dump($returnURL);
+		if($s) {
+			$server_array[$s] = '/';
+			$server_array[$s - 1] .= $server_array[$s] . $server_array[$s + 1];
+			unset($server_array[$s]);
+			unset($server_array[$s + 1]);
+			$returnURL = 'http://' . implode('.',$server_array);
+			htmlBlock($returnURL);
+		} else {
+			$returnURL = 'http://' . implode('.',$server_array);
+			htmlBlock($returnURL);
+		}
 	} else {
 		defaultPage();
 	}
