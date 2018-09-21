@@ -1,1 +1,74 @@
-index
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="redirect using dns only, redirect to new domain">
+	<meta property="og:description" content="redirect domain" />
+	<meta name="author" content="kernellab technology" />
+    <title>Frame Forward using DNS</title>
+    <style type="text/css">
+    .well {
+      min-height: 20px;
+      padding: 19px;
+      margin-bottom: 20px;
+      background-color: #f5f5f5;
+      border: 1px solid #e3e3e3;
+      border-radius: 4px;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+      }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  </head>
+  <body style="background-color: #2d1e48;">
+
+    <div class="card">
+      <div class="card-block">
+      <div class="jumbotron" style="padding: 2rem 2rem; color: aliceblue; background-color: #2d1e48; text-align: center;">
+        <h1>Frame forwarding</h1>
+        <h2>by ff.kernellab.site</h2>
+        <br />
+        <p>Forward your website using only DNS.</p>
+      </div>
+      <div class="container">
+          <p class="card-text" style="text-align: center;">
+            This can be found on <a href="https://github.com/aungphyopyaekyaw/frameforward">github</a>
+          </p>
+        </div>
+      </div>
+      </div>
+
+      <div class="card" style="background-color: #2d1e48;">
+        <div class="card-block">
+        <div class="jumbotron" style="padding: 2rem 2rem;">
+          <p>
+            Configure your DNS Zone as follows:
+          </p>
+            <div class="well well-sm">
+                <div class="row">
+                  <div class="col">Host Record: <strong>www.example.com</strong></div>
+                  <div class="col">Type: <strong>CNAME</strong></div>
+                <div class="col">To: <strong>www.new-domain.com.ff.kernellab.site</strong></div>
+              </div>
+            </div>
+
+            <p>
+              For the slash: www.new-domain.com to www.example.com/blogs
+            </p>
+              <div class="well well-sm">
+				<div class="row">
+                  <div class="col">Host Record: <strong>www.example.com</strong></div>
+                  <div class="col">Type: <strong>CNAME</strong></div>
+                <div class="col">To: <strong>www.new-domain.com.<strong>slash</strong>.blogs.ff.kernellab.site</strong></div>
+				</div>
+              </div>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>
