@@ -1,7 +1,7 @@
 <?php
 if (isset($_GET['url'])) {
     $url = $_GET['url'];
-	$proxy = '203.81.89.238:110';
+	$proxy = '127.0.0.1:110';
     $ch = curl_init();
     $timeout = 5;
     curl_setopt($ch, CURLOPT_URL, $url);
